@@ -263,6 +263,8 @@
           <img id="peak-preview" src="Assets/portfolio/2.png" />
         
           <a-asset-item id="Modelo3D" src="https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/octocatgit.glb?v=1648149096491"></a-asset-item>
+          <a-asset-item id="iron" src="https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/iron.glb?v=1653086416853"></a-asset-item>
+          <a-asset-item id="luna" src="https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/LUNA.glb?v=1653087819401"></a-asset-item>          
         </a-assets>
         
         <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable"></a-camera>
@@ -348,9 +350,9 @@
                 'octocat Haz que Iron Cat desaparezca',
                 'octocat Haz que ironcat desaparezca', 
                 'octocat regresa al escenario',
-                'realidad muestra un segundo modelo 3D',
-                'realidad regresa al cubo',
-                'realidad animación'];
+                'octocat muéstrame la luna',
+                'octocat Muéstrame la luna',
+               ];
 
 var grammar = '#JSGF V1.0; grammar arreglovoz; public <arreglovoz> = ' + arreglovoz.join(' | ') + ' ;'
 
@@ -452,15 +454,15 @@ if(voz === 'octocat ¿que es GitHub?' || voz === 'octocat Qué es github'){
   
   if(contador ==0){
   var el = document.querySelector('#avatar');
-      el.setAttribute("src", '#Modelo3D');
+      el.setAttribute("src", "#iron");
       let utterance = new SpeechSynthesisUtterance('Ironcat es un modelo basado en el personaje de ciencia ficcion IRONMAN de Marvel, esta fue renderizada por alumnos del instituo tecnologico de tlaxiaco tomando como referencia la imagen compartida por Cameron McEfee en el octodex, la verdadera identidad de Ironcat sigue siendo un misterio. Tienes idea de quien es?')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)    
     }
     
     if (contador ==1){
-      var el = document.querySelector('#caja');
-      el.setAttribute("src", '#Modelo3D');
+      var el = document.querySelector('#avatar');
+      el.setAttribute("src","#iron");
       let utterance = new SpeechSynthesisUtterance('Nuevamente se hace presente Ironcat. Dicen que es un famoso y multimillonario personaje que ayuda a compartir proyectos y/o repositorios para elaborar trabajos colaborativos. Aun no sabes quien es?. Por cierto su cabeza se parece a la de un gato justiciero. No, no es BATMAN')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
@@ -525,34 +527,13 @@ if(voz === 'octocat regresa al escenario'){
       speechSynthesis.speak(utterance)
      
 }
-if(voz === 'realidad muestra un modelo 3D'){
+if(voz === 'octocat muéstrame la luna'||voz === 'octocat Muéstrame la luna'){
   console.log("Estas mostrando un modelo 3D");
-  var es = document.querySelector('#entityID1');
-      es.setAttribute("obj-model", 'obj:url(samus/DolBarriersuit.obj);mtl:url(samus/DolBarriersuit.mtl)');
+  var es = document.querySelector('#avatar');
+      es.setAttribute("src", '#luna');
       es.setAttribute("scale",'.10 .10 .10');
-                   
-
-      var el = document.querySelector('#caja');
-          el.setAttribute("opacity", '0.0');        
-                    
-      var es = document.querySelector('#entityID2').removeAttribute('gltf-model');
       
-      let utterance = new SpeechSynthesisUtterance('ya era hora!. ya me estaba aburriendo de los cubos. Aqui esta tu modelo 3D')
-      utterance.lang = 'es-MX'
-      speechSynthesis.speak(utterance)
-}
-
-if(voz === 'realidad muestra un segundo modelo 3D'){
-  console.log("Estas mostrando un segundo modelo 3D");
-  var es = document.querySelector('#entityID2');
-      es.setAttribute("gltf-model", 'url(llama/scene.gltf)');
-                    
-      var el = document.querySelector('#caja');
-          el.setAttribute("opacity", '0.0');       
-                    
-      var es = document.querySelector('#entityID1').removeAttribute('obj-model');
-
-      let utterance = new SpeechSynthesisUtterance('Carlos, mira. Mira, si me preguntas no se cual modelo 3D me gusta mas.')
+      let utterance = new SpeechSynthesisUtterance('luna a la vista!. aunque no se que tiene que ver con GitHub.')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
 }
