@@ -310,7 +310,7 @@
               rotation="0 0 0"
               position="0 -0.25 0"
               scale="0.1 0.1 0.1"
-              src="#luna"
+              src="#Modelo3D"
               animation-mixer
             >        
             </a-gltf-model>
@@ -350,6 +350,8 @@
                 'octocat Haz que Iron Cat desaparezca',
                 'octocat Haz que ironcat desaparezca', 
                 'octocat regresa al escenario',
+                'octocat regresa a la escena',
+                'octocat vuelve',
                 'octocat muéstrame la luna',
                 'octocat Muéstrame la luna',
                ];
@@ -454,7 +456,7 @@ if(voz === 'octocat ¿que es GitHub?' || voz === 'octocat Qué es github'){
   
   if(contador ==0){
   var el = document.querySelector('#avatar');
-      el.setAttribute("src", "#iron");
+      el.setAttribute("src", "https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/iron.glb?v=1653086416853");
       let utterance = new SpeechSynthesisUtterance('Ironcat es un modelo basado en el personaje de ciencia ficcion IRONMAN de Marvel, esta fue renderizada por alumnos del instituo tecnologico de tlaxiaco tomando como referencia la imagen compartida por Cameron McEfee en el octodex, la verdadera identidad de Ironcat sigue siendo un misterio. Tienes idea de quien es?')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)    
@@ -462,7 +464,7 @@ if(voz === 'octocat ¿que es GitHub?' || voz === 'octocat Qué es github'){
     
     if (contador ==1){
       var el = document.querySelector('#avatar');
-      el.setAttribute("src","#iron");
+      el.setAttribute("src","https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/iron.glb?v=1653086416853");
       let utterance = new SpeechSynthesisUtterance('Nuevamente se hace presente Ironcat. Dicen que es un famoso y multimillonario personaje que ayuda a compartir proyectos y/o repositorios para elaborar trabajos colaborativos. Aun no sabes quien es?. Por cierto su cabeza se parece a la de un gato justiciero. No, no es BATMAN')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
@@ -511,10 +513,10 @@ if(voz === 'octocat Haz que ironcat desaparezca' || voz === 'octocat Haz que Iro
       speechSynthesis.speak(utterance)
 }
  
-if(voz === 'octocat regresa al escenario'){
+if(voz === 'octocat regresa al escenario' || voz === 'octocat regresa a la escena'){
   console.log("Estas queriendo regresar a octocat");
   var el = document.querySelector('#avatar');
-      el.setAttribute("src", '#Modelo3D');            
+      el.setAttribute("src", 'https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/octocatgit.glb?v=1648149096491');            
       el.setAttribute("scale", '0.1 0.1 0.1');
       el.setAttribute("position", '0 -0.25 0');
       el.setAttribute("rotation", '0 0 0');
@@ -530,7 +532,7 @@ if(voz === 'octocat regresa al escenario'){
 if(voz === 'octocat muéstrame la luna'||voz === 'octocat Muéstrame la luna'){
   console.log("Estas mostrando un modelo 3D");
   var es = document.querySelector('#avatar');
-      es.setAttribute("src", '#luna');
+      es.setAttribute("src", 'https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/LUNA.glb?v=1653087819401');
       es.setAttribute("scale",'.10 .10 .10');
       
       let utterance = new SpeechSynthesisUtterance('luna a la vista!. aunque no se que tiene que ver con GitHub.')
