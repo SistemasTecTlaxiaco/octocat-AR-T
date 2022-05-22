@@ -287,20 +287,32 @@
 </script>   
   </head>
   <body>    
-    <div class="contenedor_carga">   
-      <svg class="carga"
-      width="1000" height="1000" viewBox="0 0 1000 1000"
-      xmlns="http://www.w3.org/2000/svg" version="1.1"
-      xmlns:xlink="http://www.w3.org/1999/xlink">
-     <g transform="translate(500,500)">
-       <rect class="rotate-45 rotate-back" x=-5 y=-5 width=10 height=10 stroke="white" stroke-width=20 fill="none"/>
-       <rect class="rotate-45 rotate" x=-50 y=-50 width=100 height=100 stroke="#E766B6" stroke-width=20 stroke-linejoin="bevel" fill="none"/>
-       <g transform="translate(-50,0) rotate(-45)"><polyline class="left" points="40,-40 50,-50 -40,-50 -50,-40 -50,50 -40,40" stroke="black" stroke-width=20 fill="none"/></g>
-       <g transform="translate(50,0) rotate(135)"><polyline class="right" points="40,-40 50,-50 -40,-50 -50,-40 -50,50 -40,40" stroke="black" stroke-width=20 fill="none"/></g>
-       <text style="color:white;" y=-140 text-anchor="middle" font-weight="bold" font-size="3em" font-family="sans-serif">loading...</text>
-     </g>
-   </svg>
-   </div> 
+  <div class="contenedor">
+    <svg class="carga" width="1000" height="1000" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"
+      version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g transform="translate(500,500)">
+        <rect class="rotate-45 rotate-back" x=-5 y=-5 width=10 height=10 stroke="white" stroke-width=20 fill="none" />
+        <rect class="rotate-45 rotate" x=-50 y=-50 width=100 height=100 stroke="#E766B6" stroke-width=20
+          stroke-linejoin="bevel" fill="none" />
+        <g transform="translate(-50,0) rotate(-45)">
+          <polyline class="left1" points="40,-40 50,-50 -40,-50 -50,-40 -50,50 -40,40" stroke="black" stroke-width=20
+            fill="none" />
+        </g>
+        <g transform="translate(50,0) rotate(135)">
+          <polyline class="right1" points="40,-40 50,-50 -40,-50 -50,-40 -50,50 -40,40" stroke="white" stroke-width=20
+            fill="none" />
+        </g>
+        <text style="background:white; color: rgb(255, 255, 255)" y=-140 text-anchor="middle" font-weight="bold" font-size="3em"
+          font-family="Bebas Neue">Cargando componetes...</text>
+      </g>
+      <g transform="translate(435,435) scale(5 5)"><g xmlns="http://www.w3.org/2000/svg" fill="#212121" stroke-width=20>
+        <path  d="m12.29 21.499c3.73 0 8.94.09 10.835-3.701.715-1.449.875-3.122.875-4.7h-.001c0-2.073-.575-4.047-1.95-5.651.786-2.363.26-3.756-.345-4.948-2.24 0-3.69.42-5.39 1.742-2.746-.653-5.856-.571-8.455.04-1.725-1.336-3.175-1.781-5.44-1.781-.621 1.237-1.136 2.599-.344 4.977-2.676 3.083-2.466 7.566-1.065 10.322 1.97 3.835 7.49 3.7 11.28 3.7zm-5.289-9.99c.95 0 1.865.168 2.8.297 3.418.52 5.215-.297 7.31-.297 2.339 0 3.675 1.915 3.675 4.087 0 4.349-4.015 5.012-7.53 5.012-2.419-.163-9.93.976-9.93-5.012 0-2.172 1.334-4.087 3.675-4.087z" fill="#ffffff" data-original="#212121"/>
+        <path d="m16.655 18.323c1.29 0 1.835-1.692 1.835-2.727s-.545-2.727-1.835-2.727-1.835 1.692-1.835 2.727.545 2.727 1.835 2.727z" fill="#ffffff" data-original="#212121"/>
+        <path d="m7.47 18.323c1.29 0 1.835-1.692 1.835-2.727s-.546-2.726-1.835-2.726-1.835 1.692-1.835 2.727.545 2.726 1.835 2.726z" fill="#ffffff" data-original="#212121"/>
+      </g></g>
+    </svg>
+
+  </div>
   <div class="example-container">
     <div id="example-scanning-overlay" class="hidden">
       <div class="inner">
@@ -569,7 +581,7 @@ if(voz === 'octocat muéstrame a IronCat más pequeño' || voz === 'octocat Mué
       let utterance = new SpeechSynthesisUtterance('Reduciendo a Ironcat. Ahora Ironcat a vuelto a su tamaño normal para volver a combatir el mal.')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
-}
+    }
 if(voz === 'octocat Haz que ironcat desaparezca' || voz === 'octocat Haz que Iron Cat desaparezca'){
   console.log("Estas queriendo a ironcat transparente");
   var el = document.querySelector('#avatar');
