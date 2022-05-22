@@ -1,67 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>    
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>   
-    <script>
-      const showInfo = () => {
-        let y = 0;
-        const infoButton = document.querySelector("#info-button");
-        const ideaButton = document.querySelector("#idea-button");
-        const webButton = document.querySelector("#web-button");
-        const gitButton = document.querySelector("#git-button");
-        const text = document.querySelector("#text");
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script>
+    const showInfo = () => {
+      let y = 0;
+      const infoButton = document.querySelector("#info-button");
+      const ideaButton = document.querySelector("#idea-button");
+      const webButton = document.querySelector("#web-button");
+      const gitButton = document.querySelector("#git-button");
+      const text = document.querySelector("#text");
 
-        infoButton.setAttribute("visible", true);
+      infoButton.setAttribute("visible", true);
+      setTimeout(() => {
+        ideaButton.setAttribute("visible", true);
+      }, 300);
+      setTimeout(() => {
+        webButton.setAttribute("visible", true);
+      }, 600);
+      setTimeout(() => {
+        gitButton.setAttribute("visible", true);
+      }, 900);
+
+      let currentTab = '';
+      webButton.addEventListener('click', function (evt) {
+        text.setAttribute("value", "https://www.octoartx.com.mx/");
+        currentTab = 'web';
+      });
+      ideaButton.addEventListener('click', function (evt) {
+        text.setAttribute("value", "sabias que... Existe una comunidad dedicada a mi? En esta puedes encontrar imagenes (avatares) de mis diferentes fasetas o compartir imagenes referentes a mi. Visita: https://octodex.github.com/");
+        currentTab = 'idea';
         setTimeout(() => {
-          ideaButton.setAttribute("visible", true);
+          showPortfolio(() => {
+            //
+          });
         }, 300);
-        setTimeout(() => {
-          webButton.setAttribute("visible", true);
-        }, 600);
-        setTimeout(() => {
-          gitButton.setAttribute("visible", true);
-        }, 900);
+      });
+      infoButton.addEventListener('click', function (evt) {
+        text.setAttribute("value", "Hola, mi nombre es 'Octocat' mascota y logotipo de Github, mi nombre e imagen hacen referencia a las ramificaciones que tienen mis tectaculos, ramificaciones que tambien podemos encontrarnos en los repositorios de GitHub");
+        currentTab = 'info';
+      });
+      gitButton.addEventListener('click', function (evt) {
+        console.log("loc");
+        text.setAttribute("value", "Visita nuestro repositorio para ver como creamos esta maravilla");
+        currentTab = 'git';
+      });
 
-        let currentTab = '';
-        webButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "https://www.octoartx.com.mx/");
-          currentTab = 'web';
-        });
-        ideaButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "sabias que... Existe una comunidad dedicada a mi? En esta puedes encontrar imagenes (avatares) de mis diferentes fasetas o compartir imagenes referentes a mi. Visita: https://octodex.github.com/");
-          currentTab = 'idea';
-          setTimeout(() => {
-                showPortfolio(() => {
-                 //
-                });
-              }, 300);
-        });
-        infoButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "Hola, mi nombre es 'Octocat' mascota y logotipo de Github, mi nombre e imagen hacen referencia a las ramificaciones que tienen mis tectaculos, ramificaciones que tambien podemos encontrarnos en los repositorios de GitHub");
-          currentTab = 'info';
-        });
-        gitButton.addEventListener('click', function (evt) {
-          console.log("loc");
-          text.setAttribute("value", "Visita nuestro repositorio para ver como creamos esta maravilla");
-          currentTab = 'git';
-        });
-
-        text.addEventListener('click', function (evt) {
-          if (currentTab === 'web') {
-            window.location.href="https://www.octoartx.com.mx/";
-          }
-          if (currentTab === 'idea') {
+      text.addEventListener('click', function (evt) {
+        if (currentTab === 'web') {
+          window.location.href = "https://www.octoartx.com.mx/";
+        }
+        if (currentTab === 'idea') {
             window.location.href="https://octodex.github.com/";
           }
           if (currentTab === 'git') {
-            window.location.href="https://github.com/SistemasTecTlaxiaco/Octacat-AR";
-          }
-        });
-      }
+          window.location.href = "https://github.com/SistemasTecTlaxiaco/Octacat-AR";
+        }
+      });
+    }
 
       const showPortfolio = (done) => {
         const portfolio = document.querySelector("#portfolio-panel");
