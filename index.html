@@ -230,10 +230,73 @@
   font-family: Verdana;
   font-family: Vegur, 'PT Sans', Verdana, sans-serif;
 }
-</style>
-    </style>
+.contenedor_carga{
+	margin: 0px;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	background: #243071;
+  transition: all 1.5s;
+}
+.carga,.carga:before,.carga:after {
+	width:50%;
+	height: 50%;
+}
+.rotate-45{
+	transform-origin: center;
+	transform: rotate(45deg)
+}
+.rotate{
+	transform-origin: center;
+	animation: rotate 1s ease-in-out infinite;
+}
+.rotate-back{
+	transform-origin: center;
+	animation: rotate 1s ease-in-out infinite;
+	animation-direction: reverse;
+}
+.left{
+	animation: move 1s ease-in-out infinite;
+}
+.right{
+	animation: move 1s ease-in-out infinite;
+}
+
+@keyframes rotate{
+	100%{
+		transform: rotate(calc(90deg + 45deg))
+	}
+}
+@keyframes move{
+	50%{
+		transform: translate(-30px,-30px)
+	}
+}
+</style> 
+<script>
+  window.addEventListener('load',()=>{
+    const contenedor =document.querySelector('.contenedor_carga');     
+    contenedor.style.visibility='hidden';
+    contenedor.style.opacity =0;
+    contenedor.setAttribute("visible", false);
+  });
+</script>   
   </head>
-  <body>
+  <body>    
+    <div class="contenedor_carga">   
+      <svg class="carga"
+      width="1000" height="1000" viewBox="0 0 1000 1000"
+      xmlns="http://www.w3.org/2000/svg" version="1.1"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+     <g transform="translate(500,500)">
+       <rect class="rotate-45 rotate-back" x=-5 y=-5 width=10 height=10 stroke="white" stroke-width=20 fill="none"/>
+       <rect class="rotate-45 rotate" x=-50 y=-50 width=100 height=100 stroke="#E766B6" stroke-width=20 stroke-linejoin="bevel" fill="none"/>
+       <g transform="translate(-50,0) rotate(-45)"><polyline class="left" points="40,-40 50,-50 -40,-50 -50,-40 -50,50 -40,40" stroke="black" stroke-width=20 fill="none"/></g>
+       <g transform="translate(50,0) rotate(135)"><polyline class="right" points="40,-40 50,-50 -40,-50 -50,-40 -50,50 -40,40" stroke="black" stroke-width=20 fill="none"/></g>
+       <text style="color:white;" y=-140 text-anchor="middle" font-weight="bold" font-size="3em" font-family="sans-serif">loading...</text>
+     </g>
+   </svg>
+   </div> 
   <div class="example-container">
     <div id="example-scanning-overlay" class="hidden">
       <div class="inner">
@@ -520,8 +583,9 @@ if(voz === 'octocat regresa al escenario' || voz === 'octocat regresa a la escen
       el.setAttribute("scale", '0.1 0.1 0.1');
       el.setAttribute("position", '0 -0.25 0');
       el.setAttribute("rotation", '0 0 0');
+      el.setAttribute("visible", 'true');
      
-      var es = document.querySelector('#entityID1').removeAttribute('opacity');
+      var es = document.querySelector('#Avatar').removeAttribute('visible');
    
 
       let utterance = new SpeechSynthesisUtterance('Enseguida amigo. auqnue ya me estoy cansando de esto')
@@ -534,6 +598,7 @@ if(voz === 'octocat muéstrame la luna'||voz === 'octocat Muéstrame la luna'){
   var es = document.querySelector('#avatar');
       es.setAttribute("src", 'https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/LUNA.glb?v=1653087819401');
       es.setAttribute("scale",'.10 .10 .10');
+      el.setAttribute("position", '0 0 0');
       
       let utterance = new SpeechSynthesisUtterance('luna a la vista!. aunque no se que tiene que ver con GitHub.')
       utterance.lang = 'es-MX'
