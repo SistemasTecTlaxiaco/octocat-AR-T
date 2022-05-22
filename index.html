@@ -323,8 +323,7 @@
           <polyline class="right1" points="40,-40 50,-50 -40,-50 -50,-40 -50,50 -40,40" stroke="white" stroke-width=20
             fill="none" />
         </g>
-        <text style="background:white; color: rgb(255, 255, 255)" y=-140 text-anchor="middle" font-weight="bold" font-size="3em"
-          font-family="Bebas Neue">Cargando componetes...</text>
+        <text y=-140 text-anchor="middle" font-weight="bold" font-size="3em" font-family="Bebas Neue">Cargando componetes...</text>
       </g>
       <g transform="translate(435,435) scale(5 5)"><g xmlns="http://www.w3.org/2000/svg" fill="#212121" stroke-width=20>
         <path  d="m12.29 21.499c3.73 0 8.94.09 10.835-3.701.715-1.449.875-3.122.875-4.7h-.001c0-2.073-.575-4.047-1.95-5.651.786-2.363.26-3.756-.345-4.948-2.24 0-3.69.42-5.39 1.742-2.746-.653-5.856-.571-8.455.04-1.725-1.336-3.175-1.781-5.44-1.781-.621 1.237-1.136 2.599-.344 4.977-2.676 3.083-2.466 7.566-1.065 10.322 1.97 3.835 7.49 3.7 11.28 3.7zm-5.289-9.99c.95 0 1.865.168 2.8.297 3.418.52 5.215-.297 7.31-.297 2.339 0 3.675 1.915 3.675 4.087 0 4.349-4.015 5.012-7.53 5.012-2.419-.163-9.93.976-9.93-5.012 0-2.172 1.334-4.087 3.675-4.087z" fill="#ffffff" data-original="#212121"/>
@@ -480,6 +479,7 @@
     console.log(v, i);
 
   });
+ // const avatar = document.querySelector('#card1');
   document.onclick = function () {
     recognition.start();
     console.log('Estoy listo para escuchar.');
@@ -613,7 +613,7 @@
       var el = document.querySelector('#avatar');
       el.setAttribute("visible", 'false');
 
-      let utterance = new SpeechSynthesisUtterance('Ironcat a desaparecido, a utilizado nanotecnologia y muchas librerias que ha econtrado en GitHub')
+      let utterance = new SpeechSynthesisUtterance('Ironcat a desaparecido, a utilizado nanotecnologia y muchas librerias que ha econtrado en GitHub.')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
     }
@@ -627,10 +627,7 @@
       el.setAttribute("rotation", '0 0 0');
       el.setAttribute("visible", 'true');
 
-      var es = document.querySelector('#Avatar').removeAttribute('visible');
-
-
-      let utterance = new SpeechSynthesisUtterance('Enseguida amigo. auqnue ya me estoy cansando de esto')
+      let utterance = new SpeechSynthesisUtterance('Enseguida amigo. auqnue ya me estoy cansando de esto.')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
 
@@ -641,8 +638,7 @@
       es.setAttribute("src", 'https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/LUNA.glb?v=1653087819401');
       es.setAttribute("scale", '.10 .10 .10');
       el.setAttribute("position", '0 0 0');
-
-      let utterance = new SpeechSynthesisUtterance('luna a la vista!. aunque no se que tiene que ver con GitHub.')
+      let utterance = new SpeechSynthesisUtterance('luna a la vista!. Aunque no se que tiene que ver con GitHub.')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
     }
