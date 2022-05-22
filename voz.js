@@ -254,3 +254,5 @@ recognition.onerror = function(event) {
 diagnostic.textContent = 'Ocurrio un error al escucharte: ' + event.error;
 //diagnostic.textContent = 'Ocurrio un error al escucharte: ' + event.error;
 }
+
+
