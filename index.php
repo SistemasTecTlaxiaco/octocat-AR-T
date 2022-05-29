@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,22 +12,26 @@
   <script>
     const showInfo = () => {
       let y = 0;
+      const microButton = document.querySelector("#micro-button");
       const infoButton = document.querySelector("#info-button");
       const ideaButton = document.querySelector("#idea-button");
       const webButton = document.querySelector("#web-button");
       const gitButton = document.querySelector("#git-button");
       const text = document.querySelector("#text");
 
-      infoButton.setAttribute("visible", true);
+      microButton.setAttribute("visible", true);
       setTimeout(() => {
-        ideaButton.setAttribute("visible", true);
+        infoButton.setAttribute("visible", true);
       }, 300);
       setTimeout(() => {
-        webButton.setAttribute("visible", true);
+        ideaButton.setAttribute("visible", true);
       }, 600);
       setTimeout(() => {
-        gitButton.setAttribute("visible", true);
+        webButton.setAttribute("visible", true);
       }, 900);
+      setTimeout(() => {
+        gitButton.setAttribute("visible", true);
+      }, 1200);
 
       let currentTab = '';
       webButton.addEventListener('click', function (evt) {
@@ -248,7 +251,7 @@
       margin: 0px;
       height: 100vh;
       width: 100vw;
-      background-color: #243071;
+      background-image: radial-gradient(circle at 52.12% 74.26%, #a225c9 0, #8120b8 25%, #5f19a4 50%, #3c1290 75%, #110d7c 100%);
       position: fixed;
       z-index: 9999;
       transition: all 1.5s;
@@ -331,7 +334,6 @@
         <path d="m7.47 18.323c1.29 0 1.835-1.692 1.835-2.727s-.546-2.726-1.835-2.726-1.835 1.692-1.835 2.727.545 2.726 1.835 2.726z" fill="#ffffff" data-original="#212121"/>
       </g></g>
     </svg>
-
   </div>
   <div class="example-container">
     <div id="example-scanning-overlay" class="hidden">
@@ -343,9 +345,10 @@
     <a-scene
       mindar-image="imageTargetSrc: https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/targets%20(3).mind?v=1647492652448; showStats: false; uiScanning: #example-scanning-overlay;"
       embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: false">
+      device-orientation-permission-ui="enabled: false" loading-screen="backgroundColor: black">
       <a-assets>
         <img id="card" src="assets/card.png" />
+        <img id="icon-micro" src="Assets/icons/microfono.png" />
         <img id="icon-idea" src="Assets/icons/idea.png" />
         <img id="icon-web" src="Assets/icons/web.png" />
         <img id="icon-info" src="Assets/icons/info.png" />
@@ -394,22 +397,27 @@
             height="0.15" width="0.15"></a-image>
         </a-entity>
 
-        <a-image visible=false id="info-button" class="clickable" src="#icon-info" position="-0.42 -0.5 0" height="0.15"
+        <a-image visible=false id="micro-button" class="clickable" src="#icon-micro" position="-0.62 -0.5 0" height="0.15"
+          width="0.15"
+          animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+        </a-image>
+
+        <a-image visible=false id="info-button" class="clickable" src="#icon-info" position="-0.31 -0.5 0" height="0.15"
           width="0.15"
           animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
         </a-image>
 
         <a-image visible=false id="idea-button" class="clickable" src="#icon-idea" alpha-test="0.5"
-          position="-0.14 -0.5 0" height="0.15" width="0.15"
+          position="0.0 -0.5 0" height="0.15" width="0.15"
           animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
         </a-image>
 
-        <a-image visible=false id="web-button" class="clickable" src="#icon-web" position="0.14 -0.5 0" height="0.15"
+        <a-image visible=false id="web-button" class="clickable" src="#icon-web" position="0.31 -0.5 0" height="0.15"
           width="0.15"
           animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
         </a-image>
 
-        <a-image visible=false id="git-button" class="clickable" src="#icon-git" position="0.42 -0.5 0" height="0.15"
+        <a-image visible=false id="git-button" class="clickable" src="#icon-git" position="0.62 -0.5 0" height="0.15"
           width="0.15"
           animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
         </a-image>
@@ -472,23 +480,23 @@
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
-  var diagnostic = document.querySelector('#text');
-  //var hints = document.querySelector('.hints');  
+  var diagnostic = document.querySelector('#text'); 
   var vozHTML = '';
   arreglovoz.forEach(function (v, i, a) {
     console.log(v, i);
 
   });
- // const avatar = document.querySelector('#card1');
-  document.onclick = function () {
-    recognition.start();
-    console.log('Estoy listo para escuchar.');
 
-  }
+  window.onload = function() {
+  function micro(){
+ recognition.start();
+ console.log('Estoy listo para escuchar.');
+}
+document.getElementById('micro-button').onclick = micro;
+}
 
   recognition.onresult = function (event) {
-    var voz = event.results[0][0].transcript;
-    //diagnostic.textContent = 'Dijiste: ' + voz + '.';           
+    var voz = event.results[0][0].transcript;         
     diagnostic.setAttribute("value", "Dijiste: " + voz + ".");
     bg = voz;
     var bg = document.querySelector('text');
@@ -627,7 +635,7 @@
       el.setAttribute("rotation", '0 0 0');
       el.setAttribute("visible", 'true');
 
-      let utterance = new SpeechSynthesisUtterance('Enseguida amigo. auqnue ya me estoy cansando de esto.')
+      let utterance = new SpeechSynthesisUtterance('Enseguida amigo. aunque ya me estoy cansando de esto.')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
 
@@ -638,7 +646,8 @@
       es.setAttribute("src", 'https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/LUNA.glb?v=1653087819401');
       es.setAttribute("scale", '.10 .10 .10');
       el.setAttribute("position", '0 0 0');
-      let utterance = new SpeechSynthesisUtterance('luna a la vista!. Aunque no se que tiene que ver con GitHub.')
+
+      let utterance = new SpeechSynthesisUtterance('luna a la vista. Aunque no se que tiene que ver con GitHub.')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
     }
@@ -653,12 +662,10 @@
 
   recognition.onnomatch = function (event) {
     diagnostic.setAttribute("value", "No puedo escucharte claramente, por favor repiteme.");
-    //diagnostic.textContent = "No puedo escucharte claramente, por favor repiteme.";
   }
 
   recognition.onerror = function (event) {
     diagnostic.setAttribute("value", 'Ocurrio un error al escucharte: ' + event.error);
-    //diagnostic.textContent = 'Ocurrio un error al escucharte: ' + event.error;
   }
 </script>
 </html>
