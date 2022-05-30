@@ -646,6 +646,7 @@ document.getElementById('micro-button').onclick = micro;
       es.setAttribute("src", 'https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/LUNA.glb?v=1653087819401');
       es.setAttribute("scale", '.10 .10 .10');
       el.setAttribute("position", '0 0 0');
+      el.setAttribute(animation, {'property': position,'to': {x: 1, y: 1, z: 1}, 'startEvents': 'startanim001'});
 
       let utterance = new SpeechSynthesisUtterance('luna a la vista. Aunque no se que tiene que ver con GitHub.')
       utterance.lang = 'es-MX'
