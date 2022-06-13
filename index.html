@@ -569,7 +569,7 @@ document.getElementById('micro-button').onclick = micro;
 
       if (contador == 0) {
         var el = document.querySelector('#avatar');
-        el.setAttribute("src", "https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/iron1.glb?v=1653853081723");
+        el.setAttribute("src", "Assets/iron.glb");
         let utterance = new SpeechSynthesisUtterance('Ironcat es un modelo basado en el personaje de ciencia ficcion IRONMAN de Marvel, esta fue renderizada por alumnos del instituo tecnologico de tlaxiaco tomando como referencia la imagen compartida por Cameron McEfee en el octodex, la verdadera identidad de Ironcat sigue siendo un misterio. Tienes idea de quien es?')
         utterance.lang = 'es-MX'
         speechSynthesis.speak(utterance)
@@ -577,7 +577,7 @@ document.getElementById('micro-button').onclick = micro;
 
       if (contador == 1) {
         var el = document.querySelector('#avatar');
-        el.setAttribute("src", "https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/iron1.glb?v=1653853081723");
+        el.setAttribute("src", "Assets/iron.glb");
         let utterance = new SpeechSynthesisUtterance('Nuevamente se hace presente Ironcat. Dicen que es un famoso y multimillonario personaje que ayuda a compartir proyectos y/o repositorios para elaborar trabajos colaborativos. Aun no sabes quien es?. Por cierto su cabeza se parece a la de un gato justiciero. No, no es BATMAN')
         utterance.lang = 'es-MX'
         speechSynthesis.speak(utterance)
@@ -591,6 +591,7 @@ document.getElementById('micro-button').onclick = micro;
       console.log("Estas queriendo hacer a ironcat mas grande");
       if (contadorcubogrande == 0) {
         var el = document.querySelector('#avatar');
+        el.setAttribute("src", "Assets/iron.glb");
         el.setAttribute("scale", '1 1 1');
 
         let utterance = new SpeechSynthesisUtterance('Ahora Ironcat es más grande pero no me pidas hacerlo de nuevo por que es imposible. ok?')
@@ -610,6 +611,7 @@ document.getElementById('micro-button').onclick = micro;
     if (voz === 'octocat muéstrame a IronCat más pequeño' || voz === 'octocat Muéstrame ironcat más pequeño' || voz === 'octocat Muéstrame a IronCat más pequeño' || voz === 'octocat Muéstrame Iron Cat más pequeño') {
       console.log("Estas queriendo a ironcat mas pequeño");
       var el = document.querySelector('#avatar');
+      el.setAttribute("src", "Assets/iron.glb");
       el.setAttribute("scale", '0.1 0.1 0.1');
 
       let utterance = new SpeechSynthesisUtterance('Reduciendo a Ironcat. Ahora Ironcat a vuelto a su tamaño normal para volver a combatir el mal.')
@@ -643,7 +645,7 @@ document.getElementById('micro-button').onclick = micro;
     if (voz === 'octocat muéstrame la luna' || voz === 'octocat Muéstrame la luna') {
       console.log("Estas mostrando un modelo 3D");
       var es = document.querySelector('#avatar');
-      es.setAttribute("src", 'https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/LUNA.glb?v=1653087819401');
+      es.setAttribute("src", 'Assets/luna.glb');
       es.setAttribute("scale", '.10 .10 .10');
       el.setAttribute("position", '0 0 0');
       el.setAttribute(animation, {'property': position,'to': {x: 1, y: 1, z: 1}, 'startEvents': 'startanim001'});
