@@ -55,3 +55,4 @@ La realidad aumentada permite complementar la experiencia del usuario a través 
 ## Estilo de letra utilizada (Bebas Neue)
 - https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap
 # LINK DE PROYECTO
+## http://www.octoartx.com.mx/
